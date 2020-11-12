@@ -53,9 +53,9 @@ Person.prototype.poop = function (){
   this.stomach = [];
 }
 Person.prototype.toString = function(){
-  return ${this.name}, ${this.age};
-}
-const personOne = new Person('Jakobi', 20);
+  return `${this.name}, ${this.age}`;    
+}            
+const personOne = new Person('Oscar', 24);
 
 console.log(personOne.toString());
 
@@ -73,8 +73,14 @@ console.log(personOne.toString());
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+}
+Car.prototype.fill = function(gallons){
+    this.tank = this.tank + gallons;
 }
 
 /*
@@ -84,18 +90,28 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+    this.name = name;
+    this.age = age;
+    this.favoriteToy = favoriteToy;
 }
+Baby.prototype.play = function(){
+  return `Playing with ${this.favoriteToy}`;
+}
+
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  1.  Window/Global Object Binding
+   
+  2.  Implicit Binding
+
+  3.  New binding
+
+  4.  Explicit binding
 */
 
 
